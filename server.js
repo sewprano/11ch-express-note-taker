@@ -1,5 +1,5 @@
 const express = require('express');
-const apiRouter = require('./routes');
+const router = require('./routes');
 const path = require('path');
 
 const PORT = process.env.PORT || 3001;
@@ -15,12 +15,13 @@ app.use(express.static('public'));
 
 
 //api routes
+app.use('/api', router);
 //index
-app.get('*', (req, res) => {
-    res.sendFile(path.join(_dirname, '/public/index.html'));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 //notes
-app.get('/', (req, res) => {
+app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/notes.html'));
 });
 
@@ -29,4 +30,4 @@ app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
 });
 
-//testing heroku deployment
+module.exports = router;

@@ -1,17 +1,18 @@
 const express = require('express');
 const fs = require('fs');
-const notesRouter = express.Router();
-const uuid = require('./helpers/uuid');
+const router = express.Router();
+const uuid = require('../helpers/uuid');
 const db = require('../db/db.json');
 
 
 //The GET Route
-notesRouter.get('/', (req, res) => {
+router.get('/', (req, res) => {
     res.json(db);
+    router.get
 });
 
 //The POST route
-notesRouter.post('/', (req, res) => {
+router.post('/', (req, res) => {
     const {title, text} = req.body;
 
     //Check for title and body before saving
@@ -43,3 +44,4 @@ notesRouter.post('/', (req, res) => {
         res.status(400).json('Error - NOte not saved! Must include a title AND body of note');
     }
 });
+module.exports = router;
