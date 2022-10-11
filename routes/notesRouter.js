@@ -40,6 +40,6 @@ notesRouter.post('/', (req, res) => {
         });
     }
     else {
-
+        res.status(400).json('Error - NOte not saved! Must include a title AND body of note');
     }
-})
+});
