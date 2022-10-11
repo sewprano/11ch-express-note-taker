@@ -10,9 +10,10 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 // use public folder
-app.use(express.stastic('public'));
+app.use(express.static('public'));
 
-//html pages
+
+//api routes
 //index
 app.get('*', (req, res) => {
     res.sendFile(path.join(_dirname, '/public/index.html'));
@@ -22,6 +23,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/notes.html'));
 });
 
-//api routes
-
 //app.listen
+app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`);
+});
