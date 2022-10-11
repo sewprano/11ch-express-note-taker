@@ -44,12 +44,12 @@ router.post('/', (req, res) => {
                 console.log ('new note added');
 
             //response
-            res.json(response);
+            res.json();
             }            
         });
     }
     else {
-        res.status(400).json('Error - NOte not saved! Must include a title AND body of note');
+        res.status(400).json('Error - Note not saved! Must include a title AND body of note');
     }
 });
 module.exports = router;
