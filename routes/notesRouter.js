@@ -7,9 +7,17 @@ const db = require('../db/db.json');
 
 //The GET Route
 router.get('/', (req, res) => {
-    res.json(db);
-    router.get
+    fs.readFile('./db/db.json', function(err, data){
+        
+        res.json(JSON.parse(data))
+        
+    })        
+    // res.json(db);
+    // router.get
 });
+
+router.get('*', (req, res) => res.sendFile(path.join(__dirname, '.public/index.html')));
+
 
 //The POST route
 router.post('/', (req, res) => {

@@ -16,6 +16,7 @@ app.use(express.static('public'));
 
 //api routes
 app.use('/api', router);
+
 //index
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'));
@@ -27,7 +28,8 @@ app.get('/notes', (req, res) => {
 
 //app.listen
 app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
+    console.log(`Listening on port ${PORT} link: http://localhost:${PORT}`);
 });
 
-module.exports = router;
+//Not needed?
+// module.exports = router;
